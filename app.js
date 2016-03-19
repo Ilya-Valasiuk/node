@@ -1,23 +1,9 @@
 var express = require('express');
-var bodyParser = require('body-parser')
 var app = express();
-var calcLargePrimeNumber = require('./largePrimeNumber');
 
-app.use(bodyParser.json())
+var config = require('./config');
+var parserConfig = require('./configParser')(app);
 
-app.post('/largePrimeNumber', function (req, res) {
-	var requestData = req.body;
-	if(requestData && requestData.number && requestData.number > 1) {
-		var calculatedNumber = calcLargePrimeNumber(requestData.number);	
-	}
-	if(calculatedNumber) {
-		res.json({success: true, number: requestData.number, primeNumber: calculatedNumber});	
-	} else {
-		res.json({success: false, text: 'Bad request data'});	
-	}
-	
-});
+require('./routes')(app);
 
-app.listen(3000, function () {
-	console.log('start listening');
-})
+require('./run')(app, config);

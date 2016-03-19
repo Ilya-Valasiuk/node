@@ -15,6 +15,13 @@
   "scripts": {
     "test": "nodeunit test.js"
   },
+  "config": {
+        "port": "3000"
+      },
+  "scripts" : { 
+    "start" : "node app.js",
+    "test" : "nodeunit"
+     },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ilya-Valasiuk/node.git"

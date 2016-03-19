@@ -1,10 +1,13 @@
 module.exports = (function () {
 	var calculateLargePrimeNubmer = function (number) {
-		var i = 1;
+		var i = number-1;
 		var currentPrimeNumber = 1;
 
-		for(i; i < number; i++) {
-			currentPrimeNumber = isPrimeNumber(i) ? i : currentPrimeNumber;
+		for(i; i > 1; i--) {
+			if(isPrimeNumber(i)) {
+				currentPrimeNumber = i;
+				break;
+			}
 		}
 
 		return currentPrimeNumber;

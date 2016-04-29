@@ -1,10 +1,13 @@
 'use strict';
 
 let express = require('express');
-var app = express();
+let app = express();
+let config = require('./scripts/config/config'); 
+let parserConfig = require('./scripts/config/responseParserConfig')(app);
 
-var config = require('./scripts/config/config');
-var parserConfig = require('./scripts/config/responseParserConfig')(app);
+// set up env variables
+let env = require('node-env-file');
+env('./.env');
 
 require('./scripts/routes')(app);
 

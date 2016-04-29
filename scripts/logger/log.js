@@ -1,6 +1,5 @@
 module.exports = (logger) => {	
-	// need to overview. Question - how to set debug level on nede js app
-	let debugLevel = 'debug';
+	let debugLevel = process.env.debugLvl;
 
 	return {
 		info: text => logger.print(text),

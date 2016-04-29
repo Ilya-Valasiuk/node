@@ -1,4 +1,4 @@
-var primeNumber = require('./../largePrimeNumber');
+var primeNumber = require('./../scripts/largePrimeNumber/largePrimeNumber');
 
 exports.calculate = function (test) {
 	test.equal(primeNumber(6), 5);

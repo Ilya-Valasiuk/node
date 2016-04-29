@@ -1,9 +1,11 @@
-var express = require('express');
+'use strict';
+
+let express = require('express');
 var app = express();
 
-var config = require('./config');
-var parserConfig = require('./configParser')(app);
+var config = require('./scripts/config/config');
+var parserConfig = require('./scripts/config/responseParserConfig')(app);
 
-require('./routes')(app);
+require('./scripts/routes')(app);
 
-require('./run')(app, config);
+require('./scripts/run')(app, config);

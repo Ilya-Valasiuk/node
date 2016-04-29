@@ -1,35 +1,32 @@
 {
-  "name": "node",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "express": "^4.13.4",
-    "body-parser": "^1.15.0",
-    "nodeunit": "^0.9.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "nodeunit test.js"
-  },
-  "config": {
-        "port": "3000"
-      },
-  "scripts" : { 
-    "start" : "node app.js",
-    "test" : "nodeunit"
-     },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ilya-Valasiuk/node.git"
-  },
-  "author": "IV",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ilya-Valasiuk/node/issues"
-  },
-  "homepage": "https://github.com/Ilya-Valasiuk/node#readme"
+    "name": "node",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "directories": {
+        "test": "test"
+    },
+    "dependencies": {
+        "express": "^4.13.4",
+        "body-parser": "^1.15.0",
+        "nodeunit": "^0.9.1"
+    },
+    "devDependencies": {},
+    "config": {
+        "port": "3001"
+    },
+    "scripts": {
+        "start": "node app.js",
+        "test": "nodeunit"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Ilya-Valasiuk/node.git"
+    },
+    "author": "IV",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Ilya-Valasiuk/node/issues"
+    },
+    "homepage": "https://github.com/Ilya-Valasiuk/node#readme"
 }

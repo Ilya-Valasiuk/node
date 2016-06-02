@@ -2,13 +2,14 @@
 
 let express = require('express');
 let app = express();
-let config = require('./scripts/config/config'); 
-let parserConfig = require('./scripts/config/responseParserConfig')(app);
+let path = require('path');
+global.appRoot = path.resolve(__dirname);
 
-// set up env variables
 let env = require('node-env-file');
+// set up env variables
 env('./.env');
 
-require('./scripts/routes')(app);
+let config = require('./config/config'); 
 
+require('./scripts/routes')(app);;
 require('./scripts/run')(app, config);

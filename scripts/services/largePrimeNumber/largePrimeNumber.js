@@ -1,9 +1,9 @@
-module.exports = (function () {
-	var calculateLargePrimeNubmer = function (number) {
-		var i = number-1;
-		var currentPrimeNumber = 1;
+'use strict';
+module.exports = (() => {
+	let calculateLargePrimeNubmer = function (number) {
+		let currentPrimeNumber = 1;
 
-		for(i; i > 1; i--) {
+		for(let i = number-1; i > 1; i--) {
 			if(isPrimeNumber(i)) {
 				currentPrimeNumber = i;
 				break;
@@ -14,18 +14,19 @@ module.exports = (function () {
 	}
 
 	function isPrimeNumber(number) {
-		var counter = 0;
-		var j = 1;
+		let counter = 0;
 
-		for(j; j <=number; j++) {
+		for(let j = 1; j <= number; j++) {
 			if(number % j === 0) {
 				counter++;
+			}
+			if(counter > 2) {
+				break;
 			}
 		}
 
 		return counter === 2 ? true : false;
 	}
 	
-
 	return calculateLargePrimeNubmer;
 })();

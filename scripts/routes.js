@@ -1,25 +1,16 @@
+'use strict';
 module.exports = (app) => {
-	let calcLargePrimeNumber = require('./largePrimeNumber/largePrimeNumber');
-	let consoleLogger = require('./logger/consoleLogger')();
-	let logger = require('./logger/log')(consoleLogger);
+	let bodyParser = require('body-parser');
+	let largePrimeNumberParseData = require('./middleware/largePrimeNumber/largePrimeNumberParseData');
+	let largePrimeNumberRoute = require('./middleware/largePrimeNumber/largePrimeNumberRoute');
+	let largePrimeNumber = require('./middleware/largePrimeNumber/largePrimeNumber');
 
-	app.post('/largePrimeNumber', function (req, res) {
-		let requestData = req.body,
-			calculatedNumber;
-
-		logger.info('largePrimeNumber route');
-
-		if(requestData && requestData.number && requestData.number > 1) {
-			logger.debug('Start calculating large prime number for ' + requestData.number);
-			calculatedNumber = calcLargePrimeNumber(requestData.number);	
-		}
-
-		if(calculatedNumber) {
-			logger.debug('success: request number - ' + requestData.number + ', primeNumber: ' + calculatedNumber);
-			res.json({success: true, number: requestData.number, primeNumber: calculatedNumber});	
-		} else {
-			logger.debug('bad datam request number - ' + requestData.number);
-			res.json({success: false, text: 'Bad request data'});	
-		}
+	app.use(function(req, res, next) {
+		res.header("Access-Control-Allow-Origin", "*");
+		res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+		next();
 	});
-}
+	app.use(bodyParser.json());
+	app.use(largePrimeNumberParseData);
+	app.post('/largePrimeNumber', largePrimeNumberRoute(largePrimeNumber));
+};

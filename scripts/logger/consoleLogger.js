@@ -1,7 +1,8 @@
-module.exports = () => {
-	return {
-		print: (text, logLevel = 'info') => {
-			console.log(logLevel + ': ' + text);
-		}
+'use strict';
+module.exports =  {
+	print: (text, logLevel) => {
+		logLevel = logLevel || 'info';
+		
+		console.log(logLevel + ': ' + text);
 	}
 }

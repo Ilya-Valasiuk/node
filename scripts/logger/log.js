@@ -1,5 +1,7 @@
-module.exports = (logger) => {	
+'use strict';
+module.exports = (loggerName) => {	
 	let debugLevel = process.env.debugLvl;
+	let logger = require('./' + loggerName);
 
 	return {
 		info: text => logger.print(text),
